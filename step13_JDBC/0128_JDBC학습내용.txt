@@ -1,0 +1,43 @@
+JDBD 학습내용
+
+1. 개발시 필수 단계
+	* 표준 API - JDBC
+		- db와 java 언어간 통신 규약
+			- JDBC 라는 protocol
+				(http)
+	1단계 - db 실행중
+	
+	2단계 - driver 설치
+		설치 가능하게 보유 -> java 싱행 환경에 로딩
+		oracle db 설치후에 설치된 경로에서 ojdbc6.jar 제공
+		path등록해서 사용
+		
+		mysql은 aws 원격지에 생성 및 활용
+		- driver부터 로컬에 path에 등록
+			-> 코드상에서 mysql url/id/pw등으로 활용
+		
+	3단계 - ip/id/pw에 맞는 db 접속
+		Connection API
+		
+	4단계 - sql 문장 실행 
+		- 정상 접속 된 후에 sql 실행 가능한 기능의 객체 생성
+		- 메소드로 crud 로직 실행
+		- Statement & PreparedStatement API
+		
+		
+	5단계 - sql문장 실행 결과 활용
+		- select(query) : ResultSet API
+			ResultSet executeQuery("select")
+				- boolean next() 있어없어? boolean
+				- String getString("컬럼명" or 컬럼위치)  
+				- int getInt()
+				- float getFloat()
+			
+		- insert/update/delete(존재하는 table의 update) : 영향받은 행 수
+			int executeUpdate("insert/update/delete")
+			
+	6단계 - 접속해제
+		- 자원반환(close) 
+		
+		
+		
